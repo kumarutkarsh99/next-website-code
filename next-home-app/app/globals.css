@@ -25,4 +25,74 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.swiper-button-prev,
+.swiper-button-next {
+  --swiper-navigation-size: 12px !important;
+  width: 28px !important;
+  height: 28px !important;
+  padding: 8px 6px !important;
+  margin: 18px 18px !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: black;
+  color: white !important;
+  opacity: 0.5 !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  border-radius: 9999px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+
+  transition: all 0.25s ease;
+  z-index: 60 !important;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: white !important;
+  transition: transform 0.25s ease !important;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: rgba(255, 255, 255, 0.85) !important;
+  color: black !important;
+  opacity: 0.8 !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35) !important;
+}
+
+.swiper-button-prev:hover::after,
+.swiper-button-next:hover::after {
+  color: #000 !important;
+}
+
+.swiper-button-prev:hover::after {
+  transform: translateX(-1px) !important;
+}
+
+.swiper-button-next:hover::after {
+  transform: translateX(1px) !important;
+}
+
+
+.swiper-pagination {
+  z-index: 50 !important;
+}
+
+.swiper-pagination-bullet {
+  background: white !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: grey !important;
+  opacity: 1 !important;
+}
+
+
 
