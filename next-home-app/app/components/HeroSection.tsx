@@ -109,7 +109,7 @@ const HeroSection = () => {
       <HeroSlider />
       <section
         ref={heroRef}
-        className="relative bg-white pt-24 pb-16 min-h-[90vh] flex items-center"
+        className="relative bg-white pt-24 pb-16 px-12 min-h-[90vh] flex items-center"
       >
         {/* BACKGROUND CONTENT */}
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-white to-teal-50"></div>
@@ -127,7 +127,7 @@ const HeroSection = () => {
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center w-full">
               {/* LEFT COLUMN */}
               <div className="max-w-2xl space-y-6 md:space-y-8 relative z-10">
-                <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 leading-tight mt-8">
+                <h1 className="hero-title text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mt-8">
                   Find the <br />
                   <span className="relative inline-block min-w-[280px] md:min-w-[350px] lg:min-w-[420px]">
                     <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
@@ -137,7 +137,7 @@ const HeroSection = () => {
                   <br /> for your team
                 </h1>
 
-                <motion.p className="hero-subtitle text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed">
+                <motion.p className="hero-subtitle text-base sm:text-md lg:text-lg text-gray-600 leading-relaxed">
                   Connect with top professionals and build your dream team
                   faster than ever.
                 </motion.p>
@@ -149,8 +149,8 @@ const HeroSection = () => {
                       <TrendingUp className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-gray-900">98%</p>
-                      <p className="text-sm text-gray-600">Success Rate</p>
+                      <p className="text-xl font-bold text-gray-900">98%</p>
+                      <p className="text-xs text-gray-600">Success Rate</p>
                     </div>
                   </div>
 
@@ -159,8 +159,8 @@ const HeroSection = () => {
                       <Zap className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-gray-900">24h</p>
-                      <p className="text-sm text-gray-600">Avg. Hire Time</p>
+                      <p className="text-xl font-bold text-gray-900">24h</p>
+                      <p className="text-xs text-gray-600">Avg. Hire Time</p>
                     </div>
                   </div>
 
@@ -169,8 +169,8 @@ const HeroSection = () => {
                       <Users className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-gray-900">10K+</p>
-                      <p className="text-sm text-gray-600">Active Talents</p>
+                      <p className="text-xl font-bold text-gray-900">10K+</p>
+                      <p className="text-xs text-gray-600">Active Talents</p>
                     </div>
                   </div>
                 </div>
@@ -179,22 +179,23 @@ const HeroSection = () => {
                 <div className="hero-buttons flex flex-col sm:flex-row gap-3 md:gap-4">
                   <Button
                     onClick={() => {
-                      window.location.href = "/employers"; // must return void, not string
+                      window.location.href = "/employers";
                     }}
-                    className="px-6 md:px-8 py-4 md:py-6 text-base md:text-lg font-semibold 
-             bg-gradient-to-r from-emerald-600 to-teal-600 text-white 
+                    size="sm"
+                    className="px-4 md:px-6 py-4 md:py-5 text-base md:text-md font-semibold 
+             bg-linear-to-r from-emerald-600 to-teal-600 text-white 
              rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     Get Started
-                    <ArrowRight className="w-5 h-5 ml-2" />
+                    <ArrowRight className="w-5 h-5" />
                   </Button>
                 </div>
               </div>
 
               {/* RIGHT COLUMN */}
               <div className="relative flex justify-center lg:justify-end z-10 mt-10 lg:mt-0">
-                <div className="relative w-full max-w-[450px] mx-auto">
-                  <div className="relative w-full h-[520px] group">
+                <div className="relative w-full max-w-[400px] mx-auto">
+                  <div className="relative w-full h-[450px] group">
                     <div className="relative w-full h-full overflow-hidden rounded-3xl shadow-2xl border-4 border-white/50 bg-gradient-to-br from-gray-50 to-gray-100">
                       <motion.img
                         src="/a1-selector-next/candidate1.png"
@@ -204,16 +205,16 @@ const HeroSection = () => {
                     </div>
 
                     {/* STAT CARD */}
-                    <div className="absolute top-[8%] left-[-12%] bg-white/95 backdrop-blur-xl p-4 rounded-2xl shadow-2xl border border-white/50 min-w-[180px] hero-card hidden sm:block">
+                    <div className="absolute top-[8%] left-[-12%] bg-white/95 backdrop-blur-xl p-3 rounded-2xl shadow-2xl border border-white/50 min-w-[150px] hero-card hidden sm:block">
                       <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center">
-                          <Users className="w-6 h-6 text-white" />
+                        <div className="w-8 h-8 bg-emerald-600 rounded-xl flex items-center justify-center">
+                          <Users className="w-4 h-4 text-white" />
                         </div>
                         <div>
-                          <div className="text-2xl font-bold text-gray-900">
+                          <div className="text-xl font-bold text-gray-900">
                             50K+
                           </div>
-                          <div className="text-sm text-gray-600">
+                          <div className="text-xs text-gray-600">
                             Successful Hires
                           </div>
                         </div>
@@ -221,21 +222,21 @@ const HeroSection = () => {
                     </div>
 
                     {/* Trophy */}
-                    <div className="absolute top-[12%] right-[-8%] w-20 h-20 bg-yellow-400 rounded-2xl shadow-2xl flex items-center justify-center border-4 border-white hero-card hidden sm:flex">
-                      <Trophy className="w-10 h-10 text-white" />
+                    <div className="absolute top-[12%] right-[-8%] w-16 h-16 bg-yellow-400 rounded-2xl shadow-2xl flex items-center justify-center border-4 border-white hero-card hidden sm:flex">
+                      <Trophy className="w-8 h-8 text-white" />
                     </div>
 
                     {/* Interview Card */}
-                    <div className="absolute top-[40%] right-[-15%] bg-white/95 backdrop-blur-xl px-5 py-4 rounded-2xl shadow-2xl border hero-card hidden sm:block">
-                      <div className="flex items-center gap-4 mb-3">
-                        <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center">
-                          <Calendar className="w-6 h-6 text-white" />
+                    <div className="absolute top-[40%] right-[-15%] bg-white/95 backdrop-blur-xl py-4 px-5 rounded-2xl shadow-2xl border hero-card hidden sm:block">
+                      <div className="flex items-center gap-4">
+                        <div className="w-8 h-8 bg-blue-500 rounded-xl flex items-center justify-center">
+                          <Calendar className="w-4 h-4 text-white" />
                         </div>
                         <div>
                           <div className="font-semibold text-gray-900">
                             Interview Scheduled
                           </div>
-                          <div className="text-sm text-gray-600">
+                          <div className="text-xs text-gray-600">
                             Senior Developer
                           </div>
                         </div>
@@ -243,16 +244,16 @@ const HeroSection = () => {
                     </div>
 
                     {/* Briefcase */}
-                    <div className="absolute bottom-[20%] left-[-18%] bg-white/95 backdrop-blur-xl p-4 rounded-2xl shadow-2xl border min-w-[220px] hero-card hidden sm:block">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center">
-                          <Briefcase className="w-6 h-6 text-white" />
+                    <div className="absolute bottom-[20%] left-[-18%] bg-white/95 backdrop-blur-xl p-4 rounded-2xl shadow-2xl border min-w-[150px] hero-card hidden sm:block">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 bg-purple-500 rounded-xl flex items-center justify-center">
+                          <Briefcase className="w-4 h-4 text-white" />
                         </div>
                         <div>
                           <div className="font-semibold text-gray-900">
                             New Application
                           </div>
-                          <div className="text-sm text-gray-600">
+                          <div className="text-xs text-gray-600">
                             React Developer
                           </div>
                         </div>
@@ -261,14 +262,14 @@ const HeroSection = () => {
 
                     {/* Reviews */}
                     <div className="absolute bottom-[12%] right-[-10%] bg-white/95 backdrop-blur-xl p-4 rounded-2xl shadow-2xl border hero-card hidden sm:block">
-                      <div className="flex items-center gap-2 mb-2">
+                      <div className="flex items-center gap-2">
                         {[1, 2, 3, 4, 5].map((star) => (
                           <Star
                             key={star}
-                            className="w-5 h-5 fill-yellow-400 text-yellow-400"
+                            className="w-4 h-4 fill-yellow-400 text-yellow-400"
                           />
                         ))}
-                        <span className="text-lg font-bold text-gray-900">
+                        <span className="text-md font-bold text-gray-900">
                           4.9
                         </span>
                       </div>
@@ -278,12 +279,12 @@ const HeroSection = () => {
                     </div>
 
                     {/* Notification */}
-                    <div className="absolute bottom-[5%] left-[20%] bg-white/95 backdrop-blur-xl p-3 rounded-xl shadow-2xl border flex items-center gap-3 hero-card hidden sm:flex">
-                      <div className="relative w-10 h-10 bg-cyan-500 rounded-lg flex items-center justify-center">
-                        <Mail className="w-5 h-5 text-white" />
+                    <div className="absolute bottom-[-5%] left-[10%] bg-white/95 backdrop-blur-xl p-4 rounded-xl shadow-2xl border flex items-center gap-3 hero-card hidden sm:flex">
+                      <div className="relative w-8 h-8 bg-cyan-500 rounded-lg flex items-center justify-center">
+                        <Mail className="w-4 h-4 text-white" />
                       </div>
                       <div>
-                        <div className="text-sm font-semibold text-gray-900">
+                        <div className="text-md font-semibold text-gray-900">
                           New Messages
                         </div>
                         <div className="text-xs text-gray-600">

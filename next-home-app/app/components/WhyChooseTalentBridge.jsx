@@ -80,7 +80,7 @@ const WhyChooseTalentBridge = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-12 bg-gradient-to-br from-white to-emerald-50 overflow-hidden"
+      className="relative py-12 bg-linear-to-br from-white to-emerald-50 overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0">
@@ -88,7 +88,7 @@ const WhyChooseTalentBridge = () => {
         <div className="absolute bottom-20 right-20 w-80 h-80 bg-teal-100/40 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 lg:px-12">
+      <div className="relative z-10 container mx-auto px-8 lg:px-16">
         {/* Header */}
         <motion.div
           className="text-center mb-10"
@@ -101,11 +101,11 @@ const WhyChooseTalentBridge = () => {
             Why Choose Us
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
+          <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-gray-900">
             The <span className="text-emerald-600">TalentBridge</span> Advantage
           </h2>
 
-          <p className="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">
+          <p className="text-md text-gray-600 mt-4 max-w-3xl mx-auto">
             Experience recruitment excellence with our proven track record and
             innovative approach
           </p>
@@ -131,7 +131,9 @@ const WhyChooseTalentBridge = () => {
                     <Icon className="w-5 h-5 text-white" />
                   </div>
                 </div>
-                <div className="text-2xl font-bold">{stat.number}</div>
+                <div className="text-2xl text-black font-bold">
+                  {stat.number}
+                </div>
                 <div className="text-sm text-gray-600">{stat.label}</div>
               </motion.div>
             );
@@ -151,19 +153,17 @@ const WhyChooseTalentBridge = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className={`${feature.bgColor} rounded-2xl p-6`}
+                className={`${feature.bgColor} rounded-2xl p-6 shadow-sm`}
               >
                 <div
-                  className={`w-12 h-12 mb-4 flex items-center justify-center rounded-xl bg-gradient-to-r ${feature.color}`}
+                  className={`w-8 h-8 mb-4 flex items-center justify-center rounded-xl bg-linear-to-r ${feature.color}`}
                 >
-                  <Icon className="w-6 h-6 text-white" />
+                  <Icon className="w-4 h-4 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">
+                <h3 className="text-lg font-semibold mb-2 text-black">
                   {feature.title}
                 </h3>
-                <p className="text-sm text-gray-600">
-                  {feature.description}
-                </p>
+                <p className="text-sm text-gray-600">{feature.description}</p>
               </motion.div>
             );
           })}

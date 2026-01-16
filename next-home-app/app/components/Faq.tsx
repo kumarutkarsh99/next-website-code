@@ -56,7 +56,7 @@ const FAQ = () => {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-gray-50 via-white to-amber-50/30 py-10 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative bg-linear-to-br bg-white py-10 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Decorative blobs */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-blue-100/40 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-100/40 rounded-full blur-3xl pointer-events-none" />
@@ -106,10 +106,12 @@ const FAQ = () => {
                 <button
                   type="button"
                   onClick={() => toggleFAQ(idx)}
-                  className="w-full text-left p-4 sm:p-5 flex items-start gap-3 relative z-10"
+                  className="w-full text-left p-4 sm:p-4 flex items-start gap-3 relative z-10"
                 >
                   <div
-                    className={`w-9 h-9 rounded-lg bg-gradient-to-br ${faq.color} flex items-center justify-center shadow ${
+                    className={`w-9 h-9 rounded-lg bg-gradient-to-br ${
+                      faq.color
+                    } flex items-center justify-center shadow ${
                       isOpen ? "scale-110" : "group-hover:scale-105"
                     } transition-transform`}
                   >
@@ -117,7 +119,7 @@ const FAQ = () => {
                   </div>
 
                   <div className="flex-1">
-                    <h3 className="text-sm sm:text-base font-semibold text-gray-900">
+                    <h3 className="text-sm sm:text-base font-semibold mt-2 text-gray-900">
                       {faq.question}
                     </h3>
                   </div>
