@@ -47,7 +47,8 @@ const Navigation = () => {
   }, []);
 
   const redirect = () => (window.location.href = "/a1-selector-next/employers");
-  const jobRedirect = () => (window.location.href = "/a1-selector-next/jobseekers");
+  const jobRedirect = () =>
+    (window.location.href = "/a1-selector-next/jobseekers");
 
   const getLeadName = (menu: MenuItem) => menu.title;
 
@@ -69,11 +70,11 @@ const Navigation = () => {
             <img
               src="/a1-selector-next/logo2.jpg"
               alt="Logo"
-              className="w-[80px] h-[80px] object-contain"
+              className="w-12 h-12 object-contain rounded-sm"
             />
             <a
               href="/a1-selector-next/"
-              className="ml-2 text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent"
+              className="ml-3 text-xl font-bold bg-linear-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent"
             >
               A1&nbsp;Selectors
             </a>
@@ -87,7 +88,9 @@ const Navigation = () => {
                   key={index}
                   className="relative"
                   onMouseEnter={() =>
-                    menu.children && menu.children.length > 0 && setActiveDropdown(menu.slug || null)
+                    menu.children &&
+                    menu.children.length > 0 &&
+                    setActiveDropdown(menu.slug || null)
                   }
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
@@ -130,18 +133,29 @@ const Navigation = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-3">
-            <Button onClick={redirect} className="border-emerald-600 text-emerald-600">
+            <Button
+              size="sm"
+              onClick={redirect}
+              className="border-emerald-600 text-emerald-600 cursor-pointer"
+            >
               <Search className="w-4 h-4 mr-2" />
               Hire Talent
             </Button>
-            <Button onClick={jobRedirect} className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white">
+            <Button
+              size="sm"
+              onClick={jobRedirect}
+              className="bg-linear-to-r from-emerald-600 to-teal-600 text-white cursor-pointer"
+            >
               <Download className="w-4 h-4 mr-2" />
               Get Hired
             </Button>
           </div>
 
           {/* Mobile Toggle */}
-          <button className="lg:hidden p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <button
+            className="lg:hidden p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
             {isMobileMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
@@ -160,7 +174,10 @@ const Navigation = () => {
               {!loading &&
                 menus.map((menu, index) => (
                   <div key={index}>
-                    <a href={menu.url || "#"} className="block font-medium text-gray-700">
+                    <a
+                      href={menu.url || "#"}
+                      className="block font-medium text-gray-700"
+                    >
                       {menu.title}
                     </a>
 
@@ -183,10 +200,16 @@ const Navigation = () => {
                 ))}
 
               <div className="pt-4 space-y-3 border-t">
-                <Button onClick={redirect} className="w-full border-emerald-600 text-emerald-600">
+                <Button
+                  onClick={redirect}
+                  className="w-full border-emerald-600 text-emerald-600"
+                >
                   Hire Talent
                 </Button>
-                <Button onClick={jobRedirect} className="w-full bg-gradient-to-r from-emerald-600 to-teal-600">
+                <Button
+                  onClick={jobRedirect}
+                  className="w-full bg-gradient-to-r from-emerald-600 to-teal-600"
+                >
                   Get Hired
                 </Button>
               </div>

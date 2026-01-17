@@ -1,9 +1,16 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from 'react';
-import { 
-  TrendingUp, Users, Calendar, FileCheck, Briefcase, Target, Award, CheckCircle2 
-} from 'lucide-react';
+import React, { useEffect, useRef, useState } from "react";
+import {
+  TrendingUp,
+  Users,
+  Calendar,
+  FileCheck,
+  Briefcase,
+  Target,
+  Award,
+  CheckCircle2,
+} from "lucide-react";
 
 interface FlowNode {
   x: number;
@@ -14,13 +21,15 @@ interface FlowNode {
 const JobsSection: React.FC = () => {
   const [activeCard, setActiveCard] = useState<number | null>(null);
   const [activeFeature, setActiveFeature] = useState<number | null>(null);
-  const [chartData, setChartData] = useState<number[]>([20, 35, 25, 45, 30, 50, 40]);
+  const [chartData, setChartData] = useState<number[]>([
+    20, 35, 25, 45, 30, 50, 40,
+  ]);
   const [flowNodes, setFlowNodes] = useState<FlowNode[]>([
     { x: 20, y: 30, active: false },
     { x: 40, y: 50, active: false },
     { x: 60, y: 20, active: false },
     { x: 35, y: 70, active: false },
-    { x: 75, y: 60, active: false }
+    { x: 75, y: 60, active: false },
   ]);
 
   const floatingDotsRef = useRef<HTMLDivElement[]>([]);
@@ -28,15 +37,17 @@ const JobsSection: React.FC = () => {
   useEffect(() => {
     // Update chart data every 3s
     const chartInterval = setInterval(() => {
-      setChartData(prev => prev.map(() => Math.random() * 50 + 10));
+      setChartData((prev) => prev.map(() => Math.random() * 50 + 10));
     }, 3000);
 
     // Update flow nodes every 2s
     const flowInterval = setInterval(() => {
-      setFlowNodes(prev => prev.map(node => ({
-        ...node,
-        active: Math.random() > 0.5
-      })));
+      setFlowNodes((prev) =>
+        prev.map((node) => ({
+          ...node,
+          active: Math.random() > 0.5,
+        }))
+      );
     }, 2000);
 
     // Animate floating dots
@@ -53,17 +64,63 @@ const JobsSection: React.FC = () => {
   }, []);
 
   const workflowSteps = [
-    { title: 'Job Creation & Promotion', icon: TrendingUp, color: 'from-emerald-400 to-emerald-600', bgColor: 'bg-emerald-500', description: 'AI-powered descriptions, one-click multi-platform posting', iconBg: 'bg-emerald-100' },
-    { title: 'Candidate Sourcing & Screening', icon: Users, color: 'from-cyan-400 to-cyan-600', bgColor: 'bg-cyan-500', description: 'Smart resume parsing, dual-status tracking, pipeline visualization', iconBg: 'bg-cyan-100' },
-    { title: 'Collaborative Interviews', icon: Calendar, color: 'from-blue-400 to-blue-600', bgColor: 'bg-blue-500', description: 'Automated scheduling, structured feedback, team collaboration', iconBg: 'bg-blue-100' },
-    { title: 'Offer & Onboarding', icon: FileCheck, color: 'from-teal-400 to-teal-600', bgColor: 'bg-teal-500', description: 'Digital offer letters, onboarding checklists', iconBg: 'bg-teal-100' }
+    {
+      title: "Job Creation & Promotion",
+      icon: TrendingUp,
+      color: "from-emerald-400 to-emerald-600",
+      bgColor: "bg-emerald-500",
+      description: "AI-powered descriptions, one-click multi-platform posting",
+      iconBg: "bg-emerald-100",
+    },
+    {
+      title: "Candidate Sourcing & Screening",
+      icon: Users,
+      color: "from-cyan-400 to-cyan-600",
+      bgColor: "bg-cyan-500",
+      description:
+        "Smart resume parsing, dual-status tracking, pipeline visualization",
+      iconBg: "bg-cyan-100",
+    },
+    {
+      title: "Collaborative Interviews",
+      icon: Calendar,
+      color: "from-blue-400 to-blue-600",
+      bgColor: "bg-blue-500",
+      description:
+        "Automated scheduling, structured feedback, team collaboration",
+      iconBg: "bg-blue-100",
+    },
+    {
+      title: "Offer & Onboarding",
+      icon: FileCheck,
+      color: "from-teal-400 to-teal-600",
+      bgColor: "bg-teal-500",
+      description: "Digital offer letters, onboarding checklists",
+      iconBg: "bg-teal-100",
+    },
   ];
 
   const features = [
-    { icon: Briefcase, title: 'End-to-End Job Management', color: 'bg-blue-500' },
-    { icon: Target, title: 'Intelligent Candidate Tracking', color: 'bg-purple-500' },
-    { icon: Users, title: 'Integrated Client & Prospect CRM', color: 'bg-pink-500' },
-    { icon: Calendar, title: 'Collaborative Interview Scheduling', color: 'bg-indigo-500' }
+    {
+      icon: Briefcase,
+      title: "End-to-End Job Management",
+      color: "bg-blue-500",
+    },
+    {
+      icon: Target,
+      title: "Intelligent Candidate Tracking",
+      color: "bg-purple-500",
+    },
+    {
+      icon: Users,
+      title: "Integrated Client & Prospect CRM",
+      color: "bg-pink-500",
+    },
+    {
+      icon: Calendar,
+      title: "Collaborative Interview Scheduling",
+      color: "bg-indigo-500",
+    },
   ];
 
   return (
@@ -96,19 +153,23 @@ const JobsSection: React.FC = () => {
         {[0, 1, 2].map((_, idx) => (
           <div
             key={idx}
-            ref={el => { if (el) floatingDotsRef.current[idx] = el; }}
-            className={`absolute w-${[4, 3, 5][idx]} h-${[4, 3, 5][idx]} rounded-full floating-dot opacity-${[60,50,40][idx]}`}
+            ref={(el) => {
+              if (el) floatingDotsRef.current[idx] = el;
+            }}
+            className={`absolute w-${[4, 3, 5][idx]} h-${
+              [4, 3, 5][idx]
+            } rounded-full floating-dot opacity-${[60, 50, 40][idx]}`}
             style={{
-              top: idx === 0 ? '2.5rem' : idx === 1 ? '8rem' : undefined,
-              right: idx === 0 ? '5rem' : idx === 1 ? '10rem' : undefined,
-              bottom: idx === 2 ? '5rem' : undefined,
-              left: idx === 2 ? '8rem' : undefined,
-              backgroundColor: idx === 2 ? '#06b6d4' : undefined
+              top: idx === 0 ? "2.5rem" : idx === 1 ? "8rem" : undefined,
+              right: idx === 0 ? "5rem" : idx === 1 ? "10rem" : undefined,
+              bottom: idx === 2 ? "5rem" : undefined,
+              left: idx === 2 ? "8rem" : undefined,
+              backgroundColor: idx === 2 ? "#06b6d4" : undefined,
             }}
           />
         ))}
 
-        <div className="max-w-7xl mx-auto px-4 py-16 grid lg:grid-cols-2 gap-12">
+        <div className="max-w-7xl mx-auto px-16 py-16 grid lg:grid-cols-2 gap-12">
           {/* Left Content */}
           <div className="space-y-8">
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
@@ -118,27 +179,74 @@ const JobsSection: React.FC = () => {
               for your team
             </h1>
             <p className="text-lg text-gray-600 max-w-lg">
-              Connect with top professionals and build your dream team faster than ever before. Join thousands of successful companies.
+              Connect with top professionals and build your dream team faster
+              than ever before. Join thousands of successful companies.
             </p>
           </div>
 
           {/* Right Content - Mock Interface */}
           <div className="relative">
-            <div className="bg-white rounded-3xl shadow-2xl p-6 transform rotate-2 hover:rotate-0 transition-transform duration-300">
-              <div className="space-y-4">
-                {/* Top Card */}
-                <div className="bg-gradient-to-r from-teal-500 to-emerald-500 rounded-2xl p-6 text-white">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                        <Award className="w-6 h-6 text-teal-500" />
-                      </div>
-                      <div>
-                        <div className="font-bold">50K+</div>
-                        <div className="text-teal-100 text-sm">Successful Hires</div>
+            <div className="absolute -top-4 -right-4 w-12 h-12 bg-orange-400 rounded-2xl flex items-center justify-center shadow-lg z-10">
+              <Users className="w-6 h-6 text-white" />
+            </div>
+
+            {/* Outer tilted container */}
+            <div className="bg-white rounded-2xl shadow-xl p-4 rotate-2 hover:rotate-0 transition-transform duration-300">
+              <div className="space-y-3">
+                {/* Top Green Card */}
+                <div className="bg-gradient-to-r from-teal-500 to-emerald-500 rounded-xl p-4 text-white flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 bg-white rounded-full flex items-center justify-center">
+                      <Award className="w-5 h-5 text-teal-500" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-base">50K+</div>
+                      <div className="text-teal-100 text-xs">
+                        Successful Hires
                       </div>
                     </div>
-                    <CheckCircle2 className="w-6 h-6" />
+                  </div>
+                  <CheckCircle2 className="w-5 h-5" />
+                </div>
+
+                {/* New Application */}
+                <div className="flex items-center gap-3 rounded-xl border border-purple-200 bg-purple-50 p-3">
+                  <div className="w-8 h-8 rounded-lg bg-purple-500 flex items-center justify-center">
+                    <Briefcase className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-sm text-gray-900">
+                      New Application
+                    </div>
+                    <div className="text-xs text-gray-500">React Developer</div>
+                  </div>
+                </div>
+
+                {/* Interview Scheduled */}
+                <div className="flex items-center gap-3 rounded-xl border border-blue-200 bg-blue-50 p-3">
+                  <div className="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center">
+                    <Calendar className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-sm text-gray-900">
+                      Interview Scheduled
+                    </div>
+                    <div className="text-xs text-gray-500">
+                      Senior UI Designer – 2pm
+                    </div>
+                  </div>
+                </div>
+
+                {/* New Messages */}
+                <div className="flex items-center gap-3 rounded-xl border border-pink-200 bg-pink-50 p-3">
+                  <div className="w-8 h-8 rounded-lg bg-pink-500 flex items-center justify-center">
+                    <Users className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-sm text-gray-900">
+                      New Messages
+                    </div>
+                    <div className="text-xs text-gray-500">From HR Team</div>
                   </div>
                 </div>
               </div>
@@ -148,12 +256,15 @@ const JobsSection: React.FC = () => {
       </div>
 
       {/* Key Features Grid */}
-      <div className="max-w-7xl mx-auto px-4 py-6">
+      <div className="max-w-7xl mx-auto px-16 py-12">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Powerful <span className="gradient-text">Features</span> at Your Fingertips
+            Powerful <span className="gradient-text">Features</span> at Your
+            Fingertips
           </h2>
-          <p className="text-xl text-gray-600">Everything you need to streamline your hiring process</p>
+          <p className="text-xl text-gray-600">
+            Everything you need to streamline your hiring process
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -166,11 +277,22 @@ const JobsSection: React.FC = () => {
                 onMouseEnter={() => setActiveFeature(index)}
                 onMouseLeave={() => setActiveFeature(null)}
               >
-                <div className={`w-16 h-16 ${feature.color} rounded-xl flex items-center justify-center mb-4 transform transition-transform ${activeFeature === index ? 'rotate-12 scale-110' : ''}`}>
-                  <Icon className="w-8 h-8 text-white" />
+                <div
+                  className={`w-12 h-12 ${
+                    feature.color
+                  } rounded-xl flex items-center justify-center mb-4 transform transition-transform ${
+                    activeFeature === index ? "rotate-12 scale-110" : ""
+                  }`}
+                >
+                  <Icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-gray-600 text-sm">Streamline your workflow with intelligent automation and insights</p>
+                <h3 className="text-md font-bold text-gray-900 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  Streamline your workflow with intelligent automation and
+                  insights
+                </p>
               </div>
             );
           })}
