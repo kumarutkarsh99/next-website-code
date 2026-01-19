@@ -27,7 +27,7 @@ const HeroSection = () => {
       "Top Designers",
       "Expert Manager",
     ],
-    []
+    [],
   );
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -48,7 +48,7 @@ const HeroSection = () => {
         setTypedText(
           isDeleting
             ? currentWord.substring(0, typedText.length - 1)
-            : currentWord.substring(0, typedText.length + 1)
+            : currentWord.substring(0, typedText.length + 1),
         );
       }
     }, typingSpeed);
@@ -69,27 +69,27 @@ const HeroSection = () => {
       .from(
         ".hero-title",
         { y: 60, opacity: 0, duration: 1, ease: "power3.out" },
-        "-=0.4"
+        "-=0.4",
       )
       .from(
         ".hero-subtitle",
         { y: 40, opacity: 0, duration: 0.8, ease: "power3.out" },
-        "-=0.6"
+        "-=0.6",
       )
       .from(
         ".hero-stats",
         { y: 30, opacity: 0, duration: 0.7, stagger: 0.1, ease: "power3.out" },
-        "-=0.4"
+        "-=0.4",
       )
       .from(
         ".hero-buttons",
         { y: 30, opacity: 0, duration: 0.7, ease: "power3.out" },
-        "-=0.3"
+        "-=0.3",
       )
       .from(
         ".hero-image",
         { scale: 0.8, opacity: 0, duration: 1.2, ease: "power3.out" },
-        "-=0.8"
+        "-=0.8",
       )
       .from(
         ".hero-card",
@@ -100,7 +100,7 @@ const HeroSection = () => {
           stagger: 0.15,
           ease: "elastic.out(1, 0.5)",
         },
-        "-=0.6"
+        "-=0.6",
       );
   }, []);
 
