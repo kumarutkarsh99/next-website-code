@@ -34,7 +34,7 @@ const Navigation = () => {
         const data = await fetchMenu();
         // Sort menus by position
         const sortedMenus = (data?.result || []).sort(
-          (a: MenuItem, b: MenuItem) => (a.position || 0) - (b.position || 0)
+          (a: MenuItem, b: MenuItem) => (a.position || 0) - (b.position || 0),
         );
         setMenus(sortedMenus);
       } catch (error) {
